@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorry My Love ❄️</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+      background: linear-gradient(to bottom, #dff6ff, #9ad0ec, #6fb4d6);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      pointer-events: none;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(105vh);
+      }
+    }
+
+    .container{
+      width:90%;
+      max-width:800px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius:30px;
+      padding:40px 30px;
+      text-align:center;
+      color:white;
+      box-shadow:0 8px 32px rgba(0,0,0,0.2);
+      z-index:10;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    h1{
+      font-size:3rem;
+      margin-bottom:15px;
+      text-shadow:0 0 20px rgba(255,255,255,0.8);
+    }
+
+    .heart{
+      animation: heartbeat 1.5s infinite;
+      display:inline-block;
+    }
+
+    @keyframes heartbeat {
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.2);}
+    }
+
+    h2{
+      font-size:1.8rem;
+      margin-bottom:25px;
+      color:#ffffff;
+    }
+
+    .letter{
+      font-size:1.2rem;
+      line-height:2;
+      text-align:left;
+      color:#f7fbff;
+      padding:20px;
+      background: rgba(255,255,255,0.08);
+      border-radius:20px;
+    }
+
+    .signature{
+      margin-top:25px;
+      text-align:right;
+      font-size:1.3rem;
+      font-style:italic;
+    }
+
+    .forgive-btn{
+      margin-top:30px;
+      padding:14px 35px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:#4aa3d8;
+      font-size:1rem;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .forgive-btn:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 25px rgba(255,255,255,0.8);
+    }
+
+    .message{
+      margin-top:20px;
+      display:none;
+      font-size:1.3rem;
+      color:#fff;
+      animation: fadeIn 1s ease;
+    }
+
+    .music-btn{
+      position:fixed;
+      top:20px;
+      right:20px;
+      background: rgba(255,255,255,0.2);
+      border:none;
+      color:white;
+      padding:12px 20px;
+      border-radius:30px;
+      cursor:pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:2.2rem;
+      }
+
+      h2{
+        font-size:1.4rem;
+      }
+
+      .letter{
+        font-size:1rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<div class="container">
+  <h1>Sorry Pallavi ❄️ <span class="heart">💙</span></h1>
+  <h2>My Frozen Princess...</h2>
+
+  <div class="letter">
+    Dear Pallavi, 💙<br><br>
+
+    I know I hurt you, and I genuinely want to say <b>I am sorry</b>.
+    I’m sorry for being rude, for not understanding your perspective,
+    and for replying in an arrogant way.
+
+    You deserved patience, understanding, and love — not words that hurt you.
+    Sometimes, I react without thinking, but that never means your feelings are less important to me.
+
+    If I could freeze time ❄️, I would go back and choose softer words,
+    understand your heart better, and hold your feelings more carefully.
+
+    You mean so much to me, and seeing distance between us hurts.
+    I don’t want my ego or mistakes to become bigger than us.
+
+    I just want to tell you this from my heart —
+    I miss your smile, your care, and the warmth you bring into my life. 💙
+
+    Please forgive this silly person who loves you more than words can explain. 🥹
+  </div>
+
+  <div class="signature">
+    Yours,<br>
+    Someone who truly loves you ❄️
+  </div>
+
+  <button class="forgive-btn" onclick="showMessage()">
+    Tap if you can forgive me 🥹
+  </button>
+
+  <div class="message" id="message">
+    💙 Thank you for giving love another chance ❄️
+  </div>
+</div>
+
+<!-- Romantic piano music -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8b6d5f8c75.mp3?filename=romantic-piano-114175.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // Snow Effect
+  function createSnowflake(){
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = '❄';
+
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.fontSize = Math.random() * 15 + 10 + 'px';
+    snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+      snowflake.remove();
+    }, 10000);
+  }
+
+  setInterval(createSnowflake, 200);
+
+  function showMessage(){
+    document.getElementById('message').style.display = 'block';
+  }
+
+  const music = document.getElementById('bgMusic');
+
+  function toggleMusic(){
+    if(music.paused){
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
+
+</body>
+</html>
